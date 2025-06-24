@@ -67,6 +67,15 @@ const Index = () => {
     }
   ];
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/John_Doe_Resume.pdf';
+    link.download = 'John_Doe_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
       {/* Header/Hero Section */}
@@ -91,7 +100,7 @@ const Index = () => {
                 teams and delivering high-quality solutions.
               </p>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <Button className="bg-purple-600 hover:bg-purple-700">
+                <Button className="bg-purple-600 hover:bg-purple-700" onClick={handleDownloadResume}>
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
                 </Button>
